@@ -1,0 +1,27 @@
+<!-- student_management/templates/single_class_stream.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ stream.name }} Class Stream{% endblock %}
+
+{% block content %}
+  <h2>{{ stream.name }} Class Stream</h2>
+  <ul>
+    {% for student in students %}
+      <li>
+        {{ student.first_name }} {{ student.last_name }}
+        (<a href="{% url 'edit_student' student.id %}">Edit</a>)
+        (<a href="{% url 'single_student' student.id %}">View Details</a>)
+        (<a href="{% url 'delete_student' student.id %}">Delete</a>)
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3>Capture Student Data</h3>
+  <form method="post" action="{% url 'single_class_stream' stream_id=stream.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Capture Student</button>
+  </form>
+
+  <a href="{% url 'class_streams' %}">Back to Class Streams</a>
+{% endblock %}

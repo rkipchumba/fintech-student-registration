@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Class Stream{% endblock %}
+
+{% block content %}
+  <h2>Create a new Class Stream</h2>
+  <form method="post" action="{% url 'create_class_stream' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Class Stream</button>
+  </form>
+  <a href="{% url 'class_streams' %}">Back to Class Streams</a>
+{% endblock %}

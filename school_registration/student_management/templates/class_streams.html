@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Class Streams{% endblock %}
+
+{% block content %}
+  <h2>All Class Streams</h2>
+  <ul>
+    {% for stream in streams %}
+      <li><a href="{% url 'single_class_stream' stream.id %}">{{ stream.name }}</a></li>
+    {% endfor %}
+  </ul>
+  (<a href="{% url 'create_class_stream' %}">Create a new class stream</a>)
+  (<a href="{% url 'all_students' %}">View All Students</a>)
+{% endblock %}
