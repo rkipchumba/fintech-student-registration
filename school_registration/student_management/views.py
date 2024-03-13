@@ -32,7 +32,6 @@ def single_class_stream(request, stream_id):
     return render(request, 'single_class_stream.html', {'stream': stream, 'students': students, 'form': form})
 
 
-
 def edit_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
 

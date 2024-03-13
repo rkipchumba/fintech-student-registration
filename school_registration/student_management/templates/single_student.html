@@ -5,6 +5,5 @@
 {% block content %}
   <h2>{{ student.first_name }} {{ student.last_name }}</h2>
   <p>Class Stream: {{ student.class_stream.name }}</p>
-  <!-- more details as needed -->
   <a href="{% url 'single_class_stream' stream_id=student.class_stream.id %}">Back to Class Stream</a>
 {% endblock %}
